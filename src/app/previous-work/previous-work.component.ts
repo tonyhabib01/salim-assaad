@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {PreviousWorkImageService} from '../previous-work-image/shared/previous-work-image.service';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-previous-work',
@@ -8,12 +8,27 @@ import {PreviousWorkImageService} from '../previous-work-image/shared/previous-w
 })
 export class PreviousWorkComponent implements OnInit {
 
-  visibleImages = [];
-  constructor(private imageService: PreviousWorkImageService) {
-    this.visibleImages = imageService.getImages();
+  isLoaded = false;
+  response: any;
+  apiUrl = 'http://salim-assaad.herokuapp.com/index.php/api/previous_work/list';
+  // apiUrl = 'http://localhost:1234/s-a/s_a/public/index.php/api/previous_work/list';
+
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
+    this.getPreviousWorks();
+
   }
 
+  // tslint:disable-next-line:typedef
+  public getPreviousWorks() {
+    this.httpClient.get(this.apiUrl).subscribe(response => {
+      this.response = response;
+      this.isLoaded = true;
+    });
+
+  }
 }
+
+'http://salim-assaad.herokuapp.com/index.php/'

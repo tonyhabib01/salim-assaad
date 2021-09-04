@@ -10,7 +10,7 @@ export const appRoutes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'previous-work', component: PreviousWorkComponent},
-  {path: 'product-page', component: ProductPageComponent},
+  {path: 'product-page/:id', component: ProductPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '*', redirectTo: '/home', pathMatch: 'full'},
 ];

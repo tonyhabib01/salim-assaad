@@ -8,10 +8,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 import {appRoutes} from '../routes';
 import { PreviousWorkComponent } from './previous-work/previous-work.component';
-import { PreviousWorkImageComponent } from './previous-work-image/previous-work-image.component';
-import {PreviousWorkImageService} from './previous-work-image/shared/previous-work-image.service';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,15 +18,15 @@ import { CatalogComponent } from './catalog/catalog.component';
     HomeComponent,
     AboutUsComponent,
     PreviousWorkComponent,
-    PreviousWorkImageComponent,
     ProductPageComponent,
-    CatalogComponent
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PreviousWorkImageService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
